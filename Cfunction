@@ -1,0 +1,23 @@
+// Functions
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h> 
+#include <math.h>
+
+void printPlease();
+
+int main() {    
+
+    printPlease();
+
+    return 0;
+
+}
+
+void printPlease() {
+
+    printf("conclusion (function)");
+    return;
+}
