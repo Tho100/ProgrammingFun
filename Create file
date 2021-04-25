@@ -1,0 +1,31 @@
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <math.h>
+
+int main() {    
+
+// INFO: w = write and create file , r = read 
+
+    char word[100] = "This text is written from C";
+    int user,loop,i;
+
+    printf("Type 1 to create a file: ");
+    scanf("%d", &user);
+
+    if(user == 1) {
+        FILE * fPointer;
+        fPointer = fopen("thisisfile.txt", "w"); // file name, w = write or create 
+
+        fprintf(fPointer,"%s", word); // what to display
+
+        fclose(fPointer); // to clear ram after close the thing , save information
+
+    } else {
+        printf("Unknown command\n");
+    }
+    
+    return 0;
+}
