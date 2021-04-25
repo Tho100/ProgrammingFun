@@ -1,0 +1,17 @@
+#include <stdio.h>
+#define MYNAME "lol"
+
+int main() {
+
+    float age1,age2,age3, average; // store variable age
+
+    age1 = age2 = 0.4; // the average
+    
+    printf("Enter your age: \n"); // enter your age to find out the average age
+    scanf("%f", &age3);
+
+    average = (age1 + age2 + age3) /3; // caculate the average age
+    printf("\n The average age of the group is: %f ", average);
+
+
+}
