@@ -1,0 +1,19 @@
+num1 = input("Enter a numbers: ")
+num2 = input("Enter another numbers: ")
+
+user = input("Type the symbol: ")
+
+if user == "*":
+    result = int(num1) * int(num2)
+    print(result)
+
+
+if user == "+":
+    result = int(num1) + int(num2)
+    print(result)
+
+
+if user == "/":
+    result = int(num1) / int(num2)
+    print(result)
+  
