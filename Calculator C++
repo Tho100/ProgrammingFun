@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+// Calculator!
+
+    int user,num1,num2,sum;
+    char symbol;
+
+    cout << "Enter a numbers: ";
+    cin >> num1;
+
+    cout << "Enter another numbers: ";
+    cin >> num2;
+
+    cout << "Type the operator: ";
+    cin >> symbol;
+
+    if(symbol == '+') {
+        sum = num1 + num2;
+        cout << "The answer: " << sum;
+    }
+
+    if(symbol == '*') {
+        sum = num1 * num2;
+        cout << "The answer: " << sum;
+    }
+
+    if(symbol == '/') {
+        sum = num1 / num2;
+        cout << "The answer: " << sum;
+    }
+
+
+}
