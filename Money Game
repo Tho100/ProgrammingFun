@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+    string user;
+    int how_many,i;
+    int limit = 300;
+
+    cout << "Enter your name: ";
+    cin >> user;
+
+    cout << "Enter the amounts of money: ";
+    cin >> how_many;
+
+    for(i=1; i<=limit; i++) {
+        cout << "Money added to "<< user << ": " << i << "$\n";
+
+        if(i == how_many) {
+            break;
+        }
+    }
+
+    return 0;
+}
