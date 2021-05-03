@@ -1,0 +1,32 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+#include <ctime>
+using namespace std;
+
+int main() {
+
+    int tm_sec;  
+    int tm_min;   
+    int tm_hour; 
+    int tm_mday; 
+    int tm_mon; 
+    int tm_year; 
+    int tm_wday;  
+    int tm_yday;  
+    int tm_isdst;
+
+    time_t now = time(0);
+
+    tm *ltm = localtime(&now);
+
+    // The current date and times
+    cout << "Year: " << 1900 + ltm->tm_year<<endl;
+    cout << "Month: "<< 1 + ltm->tm_mon<< endl;
+    cout << "Day: "<< ltm->tm_mday << endl;
+    cout << "Time: "<< ltm->tm_hour << ":";
+    cout << 30+ltm->tm_min << ":";
+    cout << ltm->tm_sec << endl;
+
+    return 0;
+}
