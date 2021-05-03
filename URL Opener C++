@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    char code;
+
+    cout << "Youtube = 'Y'\n";
+
+    cout << "Enter the code: ";
+    cin >> code;
+
+    if(code == 'Y') {
+        system("start https://www.youtube.com/");
+    }
+
+	return 0;
+}
