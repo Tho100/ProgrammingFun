@@ -1,0 +1,92 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.IO;
+
+namespace InternetStatus
+{
+	/// <summary>
+	/// Description of MainForm.
+	/// </summary>
+	public partial class MainForm : Form
+	{
+		[DllImport("wininet.dll")]
+		private extern static bool InternetGetConnectedState(out int conn, int val);
+		
+
+		public MainForm()
+		{
+			InitializeComponent();
+			this.Text = "Connection status";
+		}
+		
+		void Button1Click(object sender, EventArgs e)
+		{
+			int Out;
+			if(InternetGetConnectedState(out Out, 0) == true) {
+				label2.Text = "Connected";
+			} else {
+				label2.Text = "Disconnected";
+			}
+		}
+		
+		void Label2Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void Label1Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void Label3Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		void Label4Click(object sender, EventArgs e)
+		{
+			
+		}
+		
+		private void ShowConnection() {
+			System.Diagnostics.Process p = new System.Diagnostics.Process();
+			p.StartInfo.FileName = "netsh.exe";
+			p.StartInfo.Arguments = "wlan show interfaces";
+			p.StartInfo.UseShellExecute = false;
+			p.StartInfo.RedirectStandardOutput = true;
+			p.Start();
+			
+			string s = p.StandardOutput.ReadToEnd();
+			string s1 = s.Substring(s.IndexOf("SSID"));
+			s1 = s1.Substring(s1.IndexOf(":"));
+			s1 = s1.Substring(2, s1.IndexOf("\n")).Trim();
+			
+			string s2 = s.Substring(s.IndexOf("Signal"));
+			s2 = s2.Substring(s2.IndexOf(":"));
+			s2 = s2.Substring(2, s2.IndexOf("\n")).Trim();
+			
+			label5.Text = s1;
+			label6.Text = s2;
+			p.WaitForExit();
+		}
+		
+		void MainFormLoad(object sender, EventArgs e)
+		{
+			ShowConnection();
+		}
+		
+		void Button2Click(object sender, EventArgs e)
+		{
+			ShowConnection();
+		}
+		
+		void Button3Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
+	}
+}
