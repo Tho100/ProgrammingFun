@@ -24,6 +24,7 @@ namespace InternetStatus
 		
 		void Button1Click(object sender, EventArgs e)
 		{
+			button5.Enabled = true;
 			int Out;
 			if(InternetGetConnectedState(out Out, 0) == true) {
 				label2.Text = "Connected";
@@ -87,6 +88,16 @@ namespace InternetStatus
 		void Button3Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+		
+		void Button5Click(object sender, EventArgs e)
+		{
+			int Auf;
+			if(InternetGetConnectedState(out Auf, 0) == true) {
+				label2.Text = "Connected";
+			} else {
+				label2.Text = "Disconnected";
+			}
 		}
 	}
 }
