@@ -54,6 +54,8 @@ namespace InternetStatus
 		}
 		
 		private void ShowConnection() {
+			int kf;
+			if(InternetGetConnectedState(out kf, 0) == true) {
 			System.Diagnostics.Process p = new System.Diagnostics.Process();
 			p.StartInfo.FileName = "netsh.exe";
 			p.StartInfo.Arguments = "wlan show interfaces";
@@ -73,6 +75,10 @@ namespace InternetStatus
 			label5.Text = s1;
 			label6.Text = s2;
 			p.WaitForExit();
+			} else {
+				label5.Text = "Internet disconnected";
+				label6.Text = "Internet disconnected";
+			}
 		}
 		
 		void MainFormLoad(object sender, EventArgs e)
