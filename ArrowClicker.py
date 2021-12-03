@@ -41,8 +41,12 @@ while run:
                 pX -= 12
             if event.key == pygame.K_RIGHT:
                 pX += 12
+            # TODO: Quit key
+            if event.key == pygame.K_ESCAPE:
+                quit()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 pass
+            
     player(pX,pY)
     pygame.display.update()
