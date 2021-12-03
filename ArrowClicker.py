@@ -1,6 +1,7 @@
 import pygame
 from time import sleep
 import numpy as np
+from pygame.constants import K_DOWN, K_RIGHT, KEYDOWN
 
 pygame.init()
 
@@ -28,19 +29,20 @@ run = True
 while run:
     # RGB (Background color)
     scn.fill((122,128,144))
-    pX += 0.5
-    # TODO: Manipulate key Position
-    print(pX)
-    if(pX == 471.5): # 1s = 1000mls | 0.5s = 500mls 
-        sleep(1.5) # Delays break for 1.5 seconds (1500 miliseconds) 
-        print("HOLY SHIT FINALLY")
-        break
-    elif(pX < 471.5):
-        print("Not there yet")
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
 
+        # TODO: Manipulate png position using arrow keys
+
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                pX -= 12
+            if event.key == pygame.K_RIGHT:
+                pX += 12
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                pass
     player(pX,pY)
     pygame.display.update()
