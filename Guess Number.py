@@ -7,7 +7,11 @@ def num_generator(n):
     a = random.randint(1,6)
     if(n == a):
         print("GG")
-
+        repl = input("Play again? (Y/N): ")
+        if(repl == 'Y'):
+            player_func()
+        else:
+            print("OK!")
 # Define player function    
 
 def player_func():
